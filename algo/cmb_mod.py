@@ -30,3 +30,12 @@ def cmb(n,r):
     return over // under
 
 a = cmb(n, r)
+
+def fur(n,r): #cmbのmodがついた場合の計算方法
+    p,q = 1,1
+    for i in range(r):
+        p = p*(n-i)%mod
+        q = q*(i+1)%mod
+    return p * pow(q,mod-2,mod) % mod
+
+s = pow(2, n, mod) - 1 #2**n のmod計算方法
